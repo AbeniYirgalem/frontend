@@ -52,6 +52,13 @@ export function NotificationBell() {
   const [loading, setLoading] = useState(false);
   const panelRef = useRef<HTMLDivElement>(null);
 
+  useEffect(() => {
+    if (!user) {
+      setItems([]);
+      setUnread(0);
+    }
+  }, [user]);
+
   const loadCount = useCallback(async () => {
     try {
       const count = await fetchUnreadCount();
