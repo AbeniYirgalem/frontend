@@ -1,36 +1,78 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+## Bus Ticketing System - Frontend
 
-## Getting Started
+A Next.js 16 app for bus ticket booking, RFID wallet management, live transit tracking, and admin/operator dashboards.
 
-First, run the development server:
+### Features
+
+- Role-based dashboards for admin, operator, and passenger
+- Ticket search, booking flow, and trip history
+- RFID wallet recharge and management
+- Live transit map and real-time updates (Socket.IO)
+- Notifications, reviews, and system monitoring views
+
+### Tech Stack
+
+- Next.js 16 App Router
+- React 19 + TypeScript
+- Tailwind CSS 4
+- Mongoose + NextAuth
+- Socket.IO client, Leaflet maps, Radix UI
+
+### Getting Started
+
+1. Install dependencies
+
+```bash
+npm install
+```
+
+2. Create a `.env.local` with the required values (see Environment Variables below).
+
+3. Run the dev server
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open http://localhost:3000.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Environment Variables
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Required:
 
-## Learn More
+- `NEXT_PUBLIC_API_URL` - Base API URL used by the frontend (example: `http://localhost:5000/api`).
+- `MONGODB_URI` - MongoDB connection string (used by server-side code).
 
-To learn more about Next.js, take a look at the following resources:
+Optional:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- `NEXT_PUBLIC_SOCKET_URL` - Socket.IO server URL. Falls back to `NEXT_PUBLIC_API_URL` without `/api`.
+- `TELEBIRR_API_BASE` - Telebirr API base URL (defaults to Telebirr sandbox).
+- `TELEBIRR_FABRIC_APP_ID`
+- `TELEBIRR_APP_SECRET`
+- `TELEBIRR_MERCHANT_APP_ID`
+- `TELEBIRR_MERCHANT_CODE`
+- `TELEBIRR_PUBLIC_KEY`
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Scripts
 
-## Deploy on Vercel
+- `npm run dev` - Start dev server
+- `npm run build` - Build production output
+- `npm run start` - Start production server
+- `npm run lint` - Run ESLint
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Project Structure
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- [src/app](src/app) - App Router pages and layouts
+- [src/components](src/components) - UI and feature components
+- [src/services](src/services) - API clients
+- [src/hooks](src/hooks) - Reusable React hooks
+- [src/lib](src/lib) - Utilities (auth, db, payment)
+- [src/models](src/models) - Mongoose models
+- [src/providers](src/providers) - Context providers
+- [src/types](src/types) - Shared TypeScript types
+- [src/utils](src/utils) - Helpers and validators
+
+### Notes
+
+- Update [next.config.ts](next.config.ts) if you need to change image, API, or build settings.
+- Tailwind configuration is in [postcss.config.mjs](postcss.config.mjs) and [src/app/globals.css](src/app/globals.css).
