@@ -18,6 +18,7 @@ const operatorLinks = [
   { href: "/rfid-management", label: "RFID Analytics" },
   { href: "/rfid-scanner", label: "RFID Scanner" },
   { href: "/system-monitoring", label: "System Monitoring" },
+  { href: "/dashboard/esp32", label: "⚡ ESP32 Telemetry" },
 ];
 
 const adminLinks = [
@@ -26,6 +27,7 @@ const adminLinks = [
   { href: "/dashboard/admin", label: "Approvals" },
   { href: "/rfid-management", label: "RFID Analytics" },
   { href: "/system-monitoring", label: "System Monitoring" },
+  { href: "/dashboard/esp32", label: "⚡ ESP32 Telemetry" },
 ];
 
 export function DashboardSidebar() {
